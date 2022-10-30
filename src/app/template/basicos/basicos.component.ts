@@ -26,6 +26,10 @@ export class BasicosComponent implements OnInit {
             this.miFormulario?.form.controls['precio']?.touched;
   }
 
+  customDirective() {
+    return this.miFormulario?.form.controls['existencias']?.errors;
+  }
+
   guardar() {
     console.log(this.miFormulario.value);
   }
