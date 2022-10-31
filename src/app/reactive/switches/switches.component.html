@@ -1,7 +1,7 @@
 <h2>Reactivo: Switches</h2>
 <hr>
 
-<form>
+<form [formGroup]="miFormulario">
 
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Género</label>
@@ -10,7 +10,7 @@
                 <input class="form-check-input" 
                         type="radio"
                         value="M" 
-                        name="radioGenero" 
+                        formControlName="genero"
                         id="radioMasculino">
                 <label class="form-check-label" for="radioMasculino">
                   Masculino
@@ -20,7 +20,7 @@
                 <input class="form-check-input" 
                         type="radio" 
                         value="F" 
-                        name="radioGenero" 
+                        formControlName="genero"
                         id="radioFemenino">
                 <label class="form-check-label" for="radioFemenino">
                   Femenino
@@ -35,9 +35,8 @@
             <div class="form-check form-switch mt-2">
                 <input class="form-check-input" 
                         type="checkbox" 
-                        role="switch" 
-                        id="flexSwitchCheckChecked" 
-                        checked>
+                        formControlName="notificaciones"
+                        id="flexSwitchCheckChecked">
                 <label class="form-check-label" for="flexSwitchCheckChecked">Quiero recibir notificaciones</label>
               </div>
         </div>
@@ -49,6 +48,7 @@
             <div class="form-check">
                 <input class="form-check-input" 
                         type="checkbox" 
+                        formControlName="terminos"
                         id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                     Terminos y condiciones de uso
@@ -67,7 +67,7 @@
 
 </form>
 
-<!-- <h5>Valor del formulario</h5>
+<h5>Valor del formulario</h5>
 <pre>{{ miFormulario.value | json }}</pre>
 <br>
 
@@ -79,4 +79,4 @@
 <pre>{{miFormulario.valid}}</pre>
 
 <h5>Terminos</h5>
-<pre>{{ errores | json }}</pre> -->
+<!-- <pre>{{ errores | json }}</pre> -->
