@@ -19,7 +19,20 @@ export class RegistroComponent implements OnInit {
     password2: ['', [Validators.required]]
   }, {
     validators: [this.validatorService.camposIguales('password', 'password2')]
-  })
+  });
+
+
+  get emailErrorMsg(): string {
+    const errors = this.miFormulario.get('email')?.errors;
+    if(errors?.['required']){
+      return 'El email es obligatorio';
+    } else if (errors?.['pattern']) {
+      return 'El valor ingresado no tiene formato de correo'
+    } else if (errors?.['emailTomado']) {
+      return 'El email ya fue tomado';
+    }
+    return ''
+  }
 
   constructor(private fb: FormBuilder,
               private validatorService: ValidatorService,
